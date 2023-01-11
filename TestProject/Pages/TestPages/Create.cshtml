@@ -1,0 +1,21 @@
+﻿@page
+@model TestProject.Pages.TestPages.CreateModel
+@{
+    <form method="post">    <div class="form-group">
+        <label asp-for="@Model.serviceObject.Name" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="@Model.serviceObject.Name" class="form-control" />
+            <span asp-validation-for="@Model.serviceObject.Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.serviceObject.Amount" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="@Model.serviceObject.Amount" class="form-control" />
+            <span asp-validation-for="@Model.serviceObject.Amount" class="text-danger"></span>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success" >Create</button>
+    </form>
+
+}

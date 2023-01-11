@@ -1,0 +1,46 @@
+﻿@page
+@using TestProject.Models;
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<h2>Objects</h2>
+<div class="table-responsive" >
+    <table class="table table-scripped-recipe">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Amount</th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (ServiceObject serviceObject in Model.serviceObjects)
+        {  
+            <tr>
+                <td class="align-middle">@serviceObject.Name</td>
+                <td class="align-middle">@serviceObject.Amount</td>
+                <td><a asp-page="TestPages/View" asp-route-id="@serviceObject.ID" class="btn btn-primary">View</a></td>
+            </tr>
+        }
+    </table>
+    <td><a asp-page="TestPages/Create" class="btn btn-primary">Create</a></td>
+</div>
+<h2>Bookings</h2>
+<div class="table-responsive">
+    <table class="table table-scripped-recipe">
+        <thead>
+            <tr>
+                <th>ObjectID</th>
+                <th>Amount</th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (ServiceBooking serviceBooking in Model.serviceBookings)
+        {
+            <tr>
+                <td class="align-middle">@serviceBooking.ObjectID</td>
+                <td class="align-middle">@serviceBooking.Amount</td>
+            </tr>
+        }
+    </table>
+</div>

@@ -1,0 +1,60 @@
+﻿@page "{id}"
+@using TestProject.Models;
+@model TestProject.Pages.TestPages.ViewModel
+@{
+    @if (Model.serviceObject != null)
+    {
+        <form method="post">
+
+        <div class="form-group">
+            <label asp-for="@Model.serviceObject.ID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <label class="form-control">@Model.serviceObject.ID</label>
+                <span asp-validation-for="@Model.serviceObject.ID" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.serviceObject.Name" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <label class="form-control">@Model.serviceObject.Name</label>
+                <span asp-validation-for="@Model.serviceObject.Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.serviceObject.Amount" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <label class="form-control">@Model.serviceObject.Amount</label>
+                <span asp-validation-for="@Model.serviceObject.Amount" class="text-danger"></span>
+            </div>
+            </div>
+            <a asp-page="Update" asp-route-id="@Model.serviceObject.ID" style="margin:20px;margin-left:0px;" class="btn btn-success">Update</a>
+            <a asp-page="Booking" asp-route-id="@Model.serviceObject.ID" style="margin:20px;margin-left:0px;" class="btn btn-primary">Booking</a>
+        <button type="submit" class="btn btn-danger" style="margin:20px">Delete</button>
+    </form>
+        <h2>Bookings</h2>
+        <div class="table-responsive">
+            <table class="table table-scripped-recipe">
+                <thead>
+                    <tr>
+                        <th>ObjectID</th>
+                        <th>Amount</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                @foreach (ServiceBooking serviceBooking in Model.serviceBookings)
+                {
+                    <tr>
+                        <td class="align-middle">@serviceBooking.ObjectID</td>
+                        <td class="align-middle">@serviceBooking.Amount</td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+}
+    else
+    {
+        <h1>Page not found</h1>
+    }
+
+}

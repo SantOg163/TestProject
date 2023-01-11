@@ -1,0 +1,21 @@
+﻿@page "{id}"
+@model TestProject.Pages.TestPages.BookingModel
+@{
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="@Model.serviceBooking.ObjectID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="@Model.serviceBooking.ObjectID" class="form-control" />
+                <span asp-validation-for="@Model.serviceBooking.ObjectID" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.serviceBooking.Amount" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="@Model.serviceBooking.Amount" class="form-control" />
+                <span asp-validation-for="@Model.serviceBooking.Amount" class="text-danger"></span>
+            </div>
+        </div>
+        <button type="submit" style="margin:20px;margin-left:0px;" class="btn btn-success">Update</button>
+    </form>
+}
